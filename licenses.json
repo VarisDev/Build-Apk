@@ -2,14 +2,8 @@
   "tokens": {
     "8882879302:AAEN3XHrLQSzzFqV982DbgGykrmw40iKHi8": {
       "owner": "VarisDev",
-      "repos": [
-        "Buildapk",
-        "BuildFlutter",
-        "Buildlah"
-      ],
-      "features": [
-        "build"
-      ],
+      "repos": ["Build-Apk"],
+      "features": ["build"],
       "expires_at": null
     }
   }
