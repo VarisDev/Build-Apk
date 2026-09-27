@@ -43,6 +43,11 @@ jobs:
         working-directory: project
         run: flutter create --platforms=android .
 
+      - name: Bump Gradle wrapper version
+        working-directory: project
+        run: |
+          sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14-all.zip|' android/gradle/wrapper/gradle-wrapper.properties
+
       - name: Get dependencies
         working-directory: project
         run: flutter pub get
@@ -68,4 +73,3 @@ jobs:
           name: aab
           path: project/build/app/outputs/bundle/release/app-release.aab
           retention-days: 1
-          
