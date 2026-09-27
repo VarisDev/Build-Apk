@@ -43,10 +43,16 @@ jobs:
         working-directory: project
         run: flutter create --platforms=android .
 
-      - name: Bump Gradle wrapper version
+      - name: Bump Gradle & AGP version
         working-directory: project
         run: |
           sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14-all.zip|' android/gradle/wrapper/gradle-wrapper.properties
+          if [ -f android/settings.gradle.kts ]; then
+            sed -i 's/id("com.android.application") version "[^"]*"/id("com.android.application") version "8.13.0"/' android/settings.gradle.kts
+          fi
+          if [ -f android/settings.gradle ]; then
+            sed -i "s/id 'com.android.application' version '[^']*'/id 'com.android.application' version '8.13.0'/" android/settings.gradle
+          fi
 
       - name: Get dependencies
         working-directory: project
